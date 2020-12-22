@@ -9,6 +9,19 @@ with open('generated_data.csv', newline='\n') as csvfile:
 
 #print(dataset)
 
+article_sales = {}
+for order_position in dataset:
+	article = order_position[3]
+	if article in article_sales:
+		article_sales[article] += 1
+	else:
+		article_sales[article] = 1
+
+print("---------article sales counts---------")
+for article in article_sales:
+	print(article + ": " + str(article_sales[article]))
+
+
 
 #average basket value
 #sum price after discount for each order_id
@@ -31,6 +44,8 @@ total_basket_value = Decimal(0)
 for key in basket_values:
 	total_basket_value += basket_values[key]
 
+
+print("---------basket values---------")
 print("sum of all sales (after discount): " + str(total_basket_value))
 print("valid basket count: " + str(valid_basket_count))
 
