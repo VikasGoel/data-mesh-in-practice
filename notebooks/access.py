@@ -1,7 +1,7 @@
 
 
 def grant_access(user = "no_user", dataset = "no_dataset", access="no_access"):
-	print("user: " + user + ", dataset: " + dataset + ", access: " + access)
+	#print("user: " + user + ", dataset: " + dataset + ", access: " + access)
 	if user == "no_user":
 		print("user name needed, try to provide user=\"user\" as argument")
 		return
@@ -40,7 +40,8 @@ def grant_access(user = "no_user", dataset = "no_dataset", access="no_access"):
 			print("correct dataset!")
 			switcher = {
 				"no_access": "please provide access mode by specifying access=\"access\" as additional parameter",
-				"read": "read access has been granted"
+				"read": "read access has been granted",
+				"write": "are you sure the user needs write permissions? maybe \"read\" is enough."
 			}
 			print(switcher.get(access, "invalid access method"))
 			return
@@ -62,3 +63,7 @@ if __name__ == '__main__':
 	#grant_access(user="mschultze", dataset="order_positions")
 	#grant_access(user="mschultze", dataset="order_positions", access="test123")
 	grant_access(user="mschultze", dataset="order_positions", access="read")
+
+#access mode is unclear
+#o_positions
+#one word, to later separate by _
