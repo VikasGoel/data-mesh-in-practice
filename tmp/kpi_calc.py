@@ -1,7 +1,7 @@
 import csv
 
 dataset = []
-with open('generated_data.csv', newline='\n') as csvfile:
+with open('../data/generated_data.csv', newline='\n') as csvfile:
 	csvreader = csv.reader(csvfile, delimiter=',', quotechar='\\')
 	for row in csvreader:
 		dataset += [row]
