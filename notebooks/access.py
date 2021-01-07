@@ -1,49 +1,49 @@
 
 
 def grant_access(user = "no_user", dataset = "no_dataset", access="no_access"):
-	#print("user: " + user + ", dataset: " + dataset + ", access: " + access)
 	if user == "no_user":
-		print("user name needed, try to provide user=\"user\" as argument")
+		print("User name needed, try to provide user=\"user\" as argument.")
 		return
 	if " " in user:
-		print("user name should only be one word")
+		print("User name should only be one word.")
 		return
 	if not user.islower():
-		print("user name should be all lowercase")
+		print("User name should be all lowercase.")
 		return
 	if user != "mschultze":
 		if "schultze" in user:
-			print("user names are constructed from the first letter of first name + the full last name")
+			print("User names are constructed from the first letter of first name + the full last name.")
 			return
 		else:
-			print("please note, the function only works for the user from the exercise request \"Max Schultze\"")
+			print("Please note, the function only works for the user from the exercise request \"Max Schultze\".")
 			return
 	if user == "mschultze":
-		print("correct user name!")
+		print("Correct user name!")
 		if dataset == "no_dataset":
-			print("Please provide a dataset by specifying dataset=\"dataset\" as additional parameter")
+			print("Please provide a dataset by specifying dataset=\"dataset\" as additional parameter.")
 			return
 		if " " in dataset:
-			print("dataset should only be one word")
+			print("Dataset should not contain any spaces.")
 			return
 		if not dataset.islower():
-			print("dataset should be all lowercase")
+			print("Dataset should be all lowercase.")
 			return
 		if dataset != "order_positions":
-			if "positions" in dataset:
-				print("datasets can contain \'_\' as word separator")
+			if "order" in dataset and "positions" in dataset:
+				print("Datasets can contain \'_\' as word separator.")
 				return
 			else:
-				print("please note, the function only works for the dataset from the exercise request \"Order Positions\"")
+				print("Please note, the function only works for the dataset from the exercise request \"Order Positions\".")
 				return
 		if dataset == "order_positions":
-			print("correct dataset!")
+			print("Correct dataset!")
 			switcher = {
-				"no_access": "please provide access mode by specifying access=\"access\" as additional parameter",
-				"read": "read access has been granted",
-				"write": "are you sure the user needs write permissions? maybe \"read\" is enough."
+				"no_access": "Please provide access mode by specifying access=\"access\" as additional parameter.",
+				"read": "Read access has been granted.",
+				"write": "Are you sure the user needs write permissions? Maybe \"read\" is enough.",
+				"full": "Are you sure the user needs full permissions? Maybe \"read\" is enough."
 			}
-			print(switcher.get(access, "invalid access method"))
+			print(switcher.get(access, "Invalid access method. Available options: full, write, read"))
 			return
 
 
@@ -63,7 +63,3 @@ if __name__ == '__main__':
 	#grant_access(user="mschultze", dataset="order_positions")
 	#grant_access(user="mschultze", dataset="order_positions", access="test123")
 	grant_access(user="mschultze", dataset="order_positions", access="read")
-
-#access mode is unclear
-#o_positions
-#one word, to later separate by _
