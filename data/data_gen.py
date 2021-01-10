@@ -72,7 +72,7 @@ def generate_order_line(order_id, line_number):
 def generate_orders(number_of_orders):
 	order_positions = []
 	for order_id in range(1, number_of_orders+1):
-		line_numbers = random.choice(LINE_NUMBER_COUNT_WEIGHTS)
+		line_numbers = random.choice(LINE_NUMBER_COUNT_WEIGHTS) #randomly select between 0 and 5 items per order. Orders can be empty!
 		if line_numbers == 0: #handling of empty orders
 			order_positions += [[str(order_id), "", "", "null", "null", "null", "0.00", "0.00", "0.00"]]
 		else:
